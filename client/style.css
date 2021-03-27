@@ -1,0 +1,100 @@
+/* Color variables*/
+:root {
+    --nav-background: #333333;
+    --footer-background: #111111;
+    --navlink-color: #FFFFFF;
+    --navlink-hover-background: #dddddd;
+    --navlink-hover-color: #000000;
+    --upload-button: #ee7600;
+    --upload-button-hover: #288700;
+    --upload-button-text: #abea0d;
+    --upload-button-text-active: #ffff00;
+}
+
+
+
+nav {
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: var(--nav-background);
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: var(--navlink-color);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: var(--navlink-hover-background);
+    color: var(--navlink-hover-color);
+}
+
+
+#display {
+    display: none;
+}
+
+#theImage {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    max-width: 90%;
+    max-height: 80%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+
+#upload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#uploadButton, #submitButton {
+    background-color: var(--nav-background);
+    color: var(--navlink-color);
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+
+#uploadButton:hover, #submitButton:hover {
+    background-color: var(--navlink-hover-background);
+    color: var(--navlink-hover-color);
+}
+
+
+#afterSubmit {
+    display: none;
+    font-style: italic;
+}
+
+#response {
+    display: none;
+}
+
+
+footer {
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: var(--footer-background);
+    color: var(--navlink-color);
+}

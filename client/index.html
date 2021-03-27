@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale=1>
+        <link rel="stylesheet" href="style.css">
+        <title>DP-IPFS Hello World</title>
+    </head>
+    <body>
+        <!-- Navigation bar-->
+        <nav>
+            <a href="#" onclick="switchToUpload();" class="menu-item">Upload</a>
+            <a href="#" onclick="switchToDisplay();">Display</a>
+        </nav>
+
+        <!-- Main area-->
+        <main>
+            <div id="upload" class="mainContent">
+                <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data" onsubmit="handleUpload();" target="response">
+                    <input type="file" id="uploadButton" name="filename" accept="image/png, image/jpeg">
+                    <input type="submit" id="submitButton">
+                </form>
+                <div id="afterSubmit">
+                    The server started to process the request. The new image will show in the Display tab after the data was saved on Dash Platform. This can take several minutes.
+                </div>
+                <iframe name="response" id="response" ></iframe>
+            </div>
+            <div id="display" class="mainContent">            
+                <img id="theImage" src="CID" alt="If you can read this text then the image couldn't be fetched from IPFS, or it is still loading.">
+            </div>
+        </main>
+
+        <!-- Footer-->
+        <footer>
+            <p class="license" id="license">Copyright (c) 2021 Dash Developers [Licensed under the MIT License](https://opensource.org/licenses/MIT)</p>
+        </footer>
+        
+        <script src="main.js"></script>
+    </body>
+</html>
