@@ -11,6 +11,7 @@
         <nav>
             <a href="#" onclick="switchToUpload();" class="menu-item">Upload</a>
             <a href="#" onclick="switchToDisplay();">Display</a>
+            <div class="right" id="cidLabel"></div>
         </nav>
 
         <!-- Main area-->
@@ -18,7 +19,7 @@
             <div id="upload" class="mainContent">
                 <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data" onsubmit="handleUpload();" target="response">
                     <input type="file" id="uploadButton" name="filename" accept="image/png, image/jpeg">
-                    <input type="submit" id="submitButton">
+                    <input type="submit" id="submitButton" value="Upload Image">
                 </form>
                 <div id="afterSubmit">
                     The server started to process the request. The new image will show in the Display tab after the data was saved on Dash Platform. This can take several minutes.
@@ -26,7 +27,8 @@
                 <iframe name="response" id="response" ></iframe>
             </div>
             <div id="display" class="mainContent">            
-                <img id="theImage" src="CID" alt="If you can read this text then the image couldn't be fetched from IPFS, or it is still loading.">
+                <div id="infoBox" class="display"></div>
+                <img id="theImage"  class="display" src="CID" alt="">
             </div>
         </main>
 

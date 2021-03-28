@@ -36,12 +36,20 @@ nav a:hover {
     color: var(--navlink-hover-color);
 }
 
+nav div.right {
+    float: right;
+    display: block;
+    color: var(--navlink-color);
+    text-align: center;
+    padding: 14px 20px;
+    font-style: italic;
+}
 
 #display {
     display: none;
 }
 
-#theImage {
+.display {
     position: absolute;
     top: 48%;
     left: 50%;

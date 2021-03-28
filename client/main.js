@@ -1,5 +1,6 @@
 const serverURL = "http://localhost:3000";
 
+
 function switchToUpload() {
     document.getElementById("display").style.display = "none"; 
     document.getElementById("upload").style.display = "block"; 
@@ -11,15 +12,24 @@ function switchToDisplay() {
     document.getElementById("display").style.display = "block"; 
 }
 
+function handleUpload() {
+    document.getElementById("afterSubmit").style.display = "block";
+}
+
+
 async function fetchCID() {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", serverURL + "/get-cid", true);
+    displayMessage("Fetching the CID from Dash Platform...");
+    emptyImgTag();
     xmlHttp.onload = function (e) {
         if (xmlHttp.readyState === 4) {
             if (xmlHttp.status === 200) {
-                setImageSource(JSON.parse(xmlHttp.responseText).CID);
+                displayCID(JSON.parse(xmlHttp.responseText).CID);
+                displayMessage("Fetching the image from IPFS...");
+                loadImage(JSON.parse(xmlHttp.responseText).CID);
             } else {
-                console.error("Error while trying to fetch the CID", xmlHttp.statusText)
+                displayMessage("Error while trying to fetch the CID" + xmlHttp.statusText);
             }
         }
     }
@@ -29,13 +39,24 @@ async function fetchCID() {
     xmlHttp.send( null );
 }
 
-function setImageSource(fetchedCID) {
-    document.getElementById("theImage").setAttribute("src", "https://ipfs.io/ipfs/" + fetchedCID);
+
+function emptyImgTag() {
+    document.getElementById("theImage").setAttribute("src", "");
 }
 
-function handleUpload() {
-    document.getElementById("afterSubmit").style.display = "block";
+function displayCID(cid) {
+    document.getElementById("cidLabel").innerText = "CID:   " + cid;
 }
 
-// When the page loads, fetch the CID
-fetchCID();
+function displayMessage(message) {
+    document.getElementById("infoBox").style.display = "block";
+    document.getElementById("infoBox").innerText = message;
+}
+
+function loadImage(fetchedCID) {
+    var image = document.getElementById("theImage");
+    image.setAttribute("src", "https://ipfs.io/ipfs/" + fetchedCID);
+    image.onload = function() {
+        document.getElementById("infoBox").style.display = "none";
+    }
+}
