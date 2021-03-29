@@ -9,10 +9,14 @@
     --upload-button-hover: #288700;
     --upload-button-text: #abea0d;
     --upload-button-text-active: #ffff00;
+    --success-color: #4bb543;
+    --error-color: #ff0033;
+    --default-message-color: #CCCCCC;
 }
 
 
 
+/* Navbar and nav elements*/
 nav {
     width: 100%;
     left: 0;
@@ -35,7 +39,7 @@ nav a:hover {
     background-color: var(--navlink-hover-background);
     color: var(--navlink-hover-color);
 }
-
+/* CID that is displayed in the right corner*/
 nav div.right {
     float: right;
     display: block;
@@ -45,6 +49,8 @@ nav div.right {
     font-style: italic;
 }
 
+
+/* Styles for the Display area*/
 #display {
     display: none;
 }
@@ -60,10 +66,12 @@ nav div.right {
 }
 
 
+/* Upload area styles*/
 #upload {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 550px;
     transform: translate(-50%, -50%);
 }
 
@@ -86,16 +94,43 @@ nav div.right {
 }
 
 
+/* Messages that will appear after form submit*/
 #afterSubmit {
-    display: none;
+    visibility: hidden;
     font-style: italic;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background-color: var(--default-message-color);
 }
 
-#response {
-    display: none;
+#responseMessage {
+    visibility: hidden;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.success {
+    background-color: var(--success-color);
+}
+
+.error {
+    background-color: var(--error-color);
+}
+
+.visible {
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 
+/* The Footer*/
 footer {
     padding: 20px;
     position: fixed;

@@ -17,14 +17,14 @@
         <!-- Main area-->
         <main>
             <div id="upload" class="mainContent">
-                <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data" onsubmit="handleUpload();" target="response">
+                <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
                     <input type="file" id="uploadButton" name="filename" accept="image/png, image/jpeg">
                     <input type="submit" id="submitButton" value="Upload Image">
                 </form>
                 <div id="afterSubmit">
                     The server started to process the request. The new image will show in the Display tab after the data was saved on Dash Platform. This can take several minutes.
                 </div>
-                <iframe name="response" id="response" ></iframe>
+                <div id="responseMessage"></div>
             </div>
             <div id="display" class="mainContent">            
                 <div id="infoBox" class="display"></div>
@@ -34,9 +34,10 @@
 
         <!-- Footer-->
         <footer>
-            <p class="license" id="license">Copyright (c) 2021 Dash Developers [Licensed under the MIT License](https://opensource.org/licenses/MIT)</p>
+            <p class="license" id="license">Copyright (c) 2021 Dash Developers <a href="https://opensource.org/licenses/MIT">Licensed under the MIT License</a></p>
         </footer>
         
         <script src="main.js"></script>
+        <script src="handleSubmit.js"></script>
     </body>
 </html>

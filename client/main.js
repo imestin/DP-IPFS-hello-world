@@ -4,16 +4,14 @@ const serverURL = "http://localhost:3000";
 function switchToUpload() {
     document.getElementById("display").style.display = "none"; 
     document.getElementById("upload").style.display = "block"; 
+    document.getElementById("responseMessage").style.visibility = "hidden";
+    document.getElementById("afterSubmit").style.visibility = "hidden";
 }
 
 function switchToDisplay() {
     fetchCID();                                                           // Fetch the CID of the newly uploaded image
     document.getElementById("upload").style.display = "none"; 
-    document.getElementById("display").style.display = "block"; 
-}
-
-function handleUpload() {
-    document.getElementById("afterSubmit").style.display = "block";
+    document.getElementById("display").style.visibility = "block"; 
 }
 
 
