@@ -47,7 +47,6 @@ function displayCID(cid) {
 }
 
 function displayMessage(message) {
-    console.log("történik")
     document.getElementById("infoBox").style.display = "block";
     document.getElementById("infoBox").innerText = message;
 }
