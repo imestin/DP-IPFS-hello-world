@@ -15,10 +15,12 @@ const uploadImage = async (req, res) => {
         console.error(err.message);                                                 
         return;
       }
-      const CID = await uploadToIPFS(files.filename.path)
-        .catch((err) => sendResponse(res, 500, "Error while uploading to IPFS"));      
-      fs.unlinkSync(files.filename.path);                                           // Delete the temporary file
-      saveCID(CID, res);
+      await uploadToIPFS(files.filename.path)
+        .then((CID) => {
+          fs.unlinkSync(files.filename.path);                                           // Delete the temporary file
+          saveCID(CID, res);
+        })
+        .catch((err) => sendResponse(res, 500, "Error while uploading to IPFS: " + err));      
     });
   }
 
@@ -28,7 +30,7 @@ const saveCID = async (CID, res) => {
     const client = new Dash.Client(clientOpts);
     
     updateDocument(client, CID)
-      .then((d) => sendResponse(res, 200, "Successfully uploaded"))
+      .then(() => sendResponse(res, 200, "Successfully uploaded"))
       .catch((e) => sendResponse(res, 500, "(while saving CID) " + e))
       .finally(() => client.disconnect())
 }
