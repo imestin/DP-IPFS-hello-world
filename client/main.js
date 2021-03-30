@@ -11,7 +11,7 @@ function switchToUpload() {
 function switchToDisplay() {
     fetchCID();                                                           // Fetch the CID of the newly uploaded image
     document.getElementById("upload").style.display = "none"; 
-    document.getElementById("display").style.visibility = "block"; 
+    document.getElementById("display").style.display = "block"; 
 }
 
 
@@ -47,6 +47,7 @@ function displayCID(cid) {
 }
 
 function displayMessage(message) {
+    console.log("történik")
     document.getElementById("infoBox").style.display = "block";
     document.getElementById("infoBox").innerText = message;
 }
