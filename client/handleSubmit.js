@@ -1,10 +1,10 @@
 document.addEventListener("submit", (e) => {
     const form = e.target;
-
-    submitForm(form);
     
-    document.getElementById("afterSubmit").style.visibility = "visible";
-    document.getElementById("afterSubmit").classList = "visible";
+    clearMessages();
+    submitForm(form);
+    showAfterSubmit();
+    
 
     toggleUploadButton(form, false);            // Disable the Upload button
     e.preventDefault();
@@ -56,4 +56,21 @@ function toggleUploadButton(form, state) {
     } else {
         form[1].disabled = true;
     }
+}
+
+function showAfterSubmit() {
+    document.getElementById("afterSubmit").style.visibility = "visible";
+    document.getElementById("afterSubmit").classList = "visible";
+}
+
+function clearMessages() {
+    // This is necessary, because otherwise the animation wouldn't play
+    var afterSubmit = document.getElementById("afterSubmit");
+    var newAfterSubmit = afterSubmit.cloneNode(true);
+    afterSubmit.parentNode.replaceChild(newAfterSubmit, afterSubmit);
+
+    document.getElementById("responseMessage").style.visibility = "hidden";
+    document.getElementById("afterSubmit").style.visibility = "hidden";
+    document.getElementById("responseMessage").classList = "";
+    document.getElementById("afterSubmit").classList = "";
 }

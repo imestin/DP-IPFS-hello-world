@@ -8,7 +8,7 @@
     --upload-button: #ee7600;
     --upload-button-hover: #288700;
     --upload-button-text: #abea0d;
-    --upload-button-text-active: #ffff00;
+    --upload-button-text-active: #EACE09;
     --success-color: #4bb543;
     --error-color: #ff0033;
     --default-message-color: #CCCCCC;
@@ -91,6 +91,11 @@ nav div.right {
 #uploadButton:hover, #submitButton:hover {
     background-color: var(--navlink-hover-background);
     color: var(--navlink-hover-color);
+}
+
+#submitButton:disabled {
+    background-color: var(--navlink-hover-background);
+    color: var(--upload-button-text);
 }
 
 
