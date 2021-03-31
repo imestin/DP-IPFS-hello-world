@@ -6,6 +6,8 @@ The IPFS network is not obligated to store the file, so the picture might not be
 
 If we add the same file to our local IPFS repository the application will be able to load the picture, but it might take some 10-15 minutes for _ipfs-desktop_ or other IPFS client to be fully functional.
 
+There is an ipfs node running on the backend and the pictures that are in the __example_images__ folder are pinned in that instance. The newly uploaded images won't be pinned, they exist only in the temporary _js-ipfs_ instance.
+
 The data contract creation is written in the README of the server folder.
 
 There is a [known bug](https://github.com/dashevo/dapi-grpc/issues/103) about, limit parameter is used in _utils/getDocument.js_. I rewrote `limit: 2` to `limit: 1` (the docs says limit: 2), it does not seem to cause problems.
